@@ -1,5 +1,5 @@
 require 'drb'
-require 'user'
+require './user.rb'
 
 class UserServer
   attr_accessor :users
@@ -19,5 +19,5 @@ class UserServer
   end
 end
 
-DRb.start_service("druby://127.0.0.1:67676", UserServer.new)
+DRb.start_service("druby://127.0.0.1:61676", UserServer.new)
 DRb.thread.join
