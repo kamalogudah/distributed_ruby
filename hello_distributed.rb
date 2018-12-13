@@ -10,7 +10,8 @@ class HelloWorldServer
   end
 end
 
-acl = ACL.NEW(%w{ deny all allow 192.168.0.13 })
+acl = ACL.new(%w{ deny all allow 192.168.0.13 })
+DRb.install_acl(acl)
 
 DRb.start_service("druby://127.0.0.1:61676", HelloWorldServer.new)
 DRb.thread.join
